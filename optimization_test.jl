@@ -1,23 +1,27 @@
-#Pkg.add("GLPK")
-#Pkg.add("JuMP")
-#Pkg.add("Gurobi")
-#Pkg.add("Cbc")
-#Pkg.add("SCIP")
-#Pkg.add("Ipopt")
+using Pkg
+Pkg.add("Plots")
+Pkg.add("PyPlot")
+Pkg.add("GLPK")
+Pkg.add("JuMP")
+Pkg.add("Gurobi")
+Pkg.add("Cbc")
+Pkg.add("SCIP")
+Pkg.add("Ipopt")
 
-# using Pkg
-# Pkg.add("Plots")
-using Plots
-plotly() # Choose the Plotly.jl backend for web interactivity
-plot(rand(5,5),linewidth=2,title="My Plot")
-# Pkg.add("PyPlot") # Install a different backend
-pyplot() # Switch to using the PyPlot.jl backend
-plot(rand(5,5),linewidth=2,title="My Plot") # The same plotting command works
 
 # using random
 using JuMP
 using Cbc
 # using Ipopt
+using Plots
+plotly() # Choose the Plotly.jl backend for web interactivity
+plot(rand(5,5),linewidth=2,title="My Plot")
+gui()
+
+# Pkg.add("PyPlot") # Install a different backend
+pyplot() # Switch to using the PyPlot.jl backend
+plot(rand(5,5),linewidth=2,title="My Plot") # The same plotting command works
+
 
 model = Model(with_optimizer(Cbc.Optimizer))
 

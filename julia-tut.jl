@@ -98,3 +98,39 @@ println(a4)
 a5 = [1, 3.14, "Hello"]
 
 a6 = [sin, cos, tan]
+
+
+"""Calculate area of circle of radius `r`."""
+function area(r)
+    A = π * r^2
+    return A
+end
+
+
+function square_root(n)
+    found = 0
+    for i in 1:n
+        if i^2 >= abs(n) # \ge<TAB> or >=
+            found = i # i doesn't exist outside loop
+            break
+        end
+    end
+    if found^2 == n
+        return(found, :exact)
+    else
+        return(found, :not_exact)
+    end
+end
+
+
+x = 0.0
+
+for i in 1:10
+    global x +=0.1 # `global` not needed inside a function
+    @show x # prefer @show instead of print
+end
+
+x, (x == 1.0)
+
+
+factorials = [factorial(big(n)) for n in 1:21]
